@@ -54,12 +54,21 @@ maxBufferLength: 60,
 liveSyncDurationCount: 9, 
 initialLiveManifestSize: 3 
 } , 
+   shakaOnBeforeLoad: function(shaka_player) {    
+  if (P2PEngineShaka.isSupported()) { 
+   new P2PEngineShaka(shaka_player), {
+        logLevel: 'debug',           
+}
+         
+}
+
+},  
 events: {	
 onError: function (e) 
 { 
 errbox();
- },  
-      }       
+ } 
+      },      
       }) 
   p2pml.hlsjs.initClapprPlayer(player); 
                player.on(Clappr.Events.PLAYER_STOP, playerStop);
