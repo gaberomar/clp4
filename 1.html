@@ -26,19 +26,19 @@ var sv = getParam("sv");
              seekbar: "#FF6699",
              buttons: "#FF6699"
            },
- watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
+        watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
                  height: '100%',
                  width: '100%',
                  parentId: "#player",
-                 mute: false,
-                 autoPlay: false,
+                 autoPlay: true, 
+		 hideVolumeBar: true, 
                  plugins: [CDNByeClapprPlugin, LevelSelector, DashShakaPlayback],
-events: {
+         events: {
               onError: function(e) { errorPlaying() }
             },
          playback: {
                      playInline: true,
-   hlsjsConfig: { 
+          hlsjsConfig: { 
              enableWebVTT: false,
               enableCEA708Captions: false, 
               maxBufferLength: 60, 
@@ -52,7 +52,7 @@ events: {
                          }
                      }
                  },
-stretching: 'exactfit', 
+                stretching: 'exactfit', 
                 shakaConfiguration: {
                 preferredAudioLanguage: 'pt-BR',
                 rebufferingGoal: 6,
