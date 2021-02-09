@@ -38,57 +38,71 @@ var sv = getParam("sv");
 
 
 <div id="player" class="player"></div>
-    <script>
+    
+<script>
 //<![CDATA[ 
- var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:"Um erro aconteceu!";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html('Tentando se conectar em <span class="retry-counter">'+g+"</span> segundos ...").css({"font-size":"120%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}});
-        var p = document.getElementById('player');
+	   var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:"Um erro aconteceu!";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html('Tentando se conectar em <span class="retry-counter">'+g+"</span> segundos ...").css({"font-size":"120%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}});
+    var p = document.getElementById('player');
 	var h = p.offsetHeight;
 	var w = p.offsetWidth;
-	    var player = new Clappr.Player(
-            {
-             source: sv,
-             mediacontrol: {
+ var player = new Clappr.Player({
+    source:  sv,
+    parentId: "#player",
+    width:"100%",height:"100%",
+    mute: false, 
+    autoPlay: true,
+    hideVolumeBar: true, 
+	   mediacontrol: {
              seekbar: "#fd1306",
              buttons: "#fd1306"
-               },
-  watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", position: 'bottom-left',
-                 height: '100%',
-                 width: '100%',
-                 parentId: "#player",
-                  mute: false,
-                 autoPlay: true,
-                 hideVolumeBar: true, 
-	          mimeType: "application/vnd.apple.mpegurl",
- stretching: 'exactfit', 
-plugins: [HlsjsPlayback,LevelSelector],
-		    events: {
+               }, 
+    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", position: 'bottom-left',
+  stretching: 'exactfit',
+ plugins: {core: [LevelSelector], playback:[HlsjsPlayback],}, 
+	  events: {
               onError: function(e) { errorPlaying() }
-            },    
-       playback: {
-                     playInline: true,
+            },  
+	    playInline: true,
+       playback: {       
       hlsjsConfig: { 
              enableWebVTT: false,
               enableCEA708Captions: false, 
               maxBufferLength: 10, 
                liveSyncDurationCount: 9, 
               initialLiveManifestSize: 3, 
-                  } 
+                    hlsjsplaybackConfig: {
+                   logLevel: 'debug',
+                   live: true,	
+         wsSignalerAddr: 'wss://free.freesignal.net',				
+	wsSignalerAddr: 'wss://signal.hdtvcloud.com',					
+	announce: "https://tracker.hdtvcloud.com/v1", }} 
                             },  
 	xhrSetup: function(xhr, url) {
 		xhr.withCredentials = false;
-	            },  
-		  errorPlugin: {
+	            },   
+   shakaConfiguration: {
+            preferredAudioLanguage: 'pt-BR',
+            streaming: {
+              rebufferingGoal: 15
+            }
+          },
+  shakaOnBeforeLoad: function(shaka_player) {
+            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
+        },
+	   errorPlugin: {
      timeToExpires: 2,
     onRetry: function(e) {
       player.configure({
-        source: sv,
+         source:  sv,
         autoPlay: true,
       });
     }
-  },  
-  });
+  }, 
+  });  
 
-	    
+
+
+ hlsjs.playback.initClapprPlayer(player);    
    player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
@@ -96,16 +110,17 @@ plugins: [HlsjsPlayback,LevelSelector],
 
   player.setVolume(100); // 1%
                player.play();
-   player.load({source: HrtlpUgett(), mimeType: 'application/vnd.apple.mpegurl'});
+  
 function HrtlpUgett() {
         return(["h","t","t","p",":","\/","\/","2","1","9",".","w","a","s","2","7",".","x","y","z",":","8","0","8","0","\/","h","l","s","\/","D","r","c","u","y","M","D","N","Y","F","2","0","1","9","0","9","0","1",".","m","3","u","8","?"].join("") + iatrSarglyeubrsUAeanr.join("") + document.getElementById("fgihketricButSnsaa").innerHTML);
-   
- }
+    } 
+               
 document.write("Not supported :(");
 
   
      //]]>    
   </script>
+	
 	<style>
 /* <![CDATA[ */
 
@@ -208,10 +223,6 @@ textarea {
 }
 /* ]]> */
 </style>
-<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/3479349225-widgets.js"></script>
-<script type='text/javascript'>
-window['__wavt'] = 'AOuZoY7mxyWx5iZ93ERPauN7iBUutndbRA:1612299121410';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6306875800872750103','//yallalive-clappr.blogspot.com/','6306875800872750103');
-_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '6306875800872750103', 'title': 'Clappr', 'url': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'canonicalUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'homepageUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'searchUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'canonicalHomepageUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'blogspotFaviconUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Yalla Live Clappr - Atom\x22 href\x3d\x22https://yallalive-clappr.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Yalla Live Clappr - RSS\x22 href\x3d\x22http://raw.githack.com/gaberomar/clp5/master/1.html/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Yalla Live Clappr - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/6306875800872750103/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://www.blogger.com/profile/00421076262877430959\x22 /\x3e\n', 'adsenseHostId': 'ca-host-pub-', 'adsenseHasAds': false, 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/7fffce91dc74e376', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'disableGComments': true, 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'index', 'pageName': '', 'pageTitle': 'Yalla Live Clappr'}}, {'name': 'features', 'data': {'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Custom', 'isResponsive': true, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Yalla Live Clappr', 'description': 'Yalla Live Clappr', 'url': 'https://yallalive-clappr.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}, {'name': 'widgets', 'data': []}]);
-</script>
+
 </body>
 </html>
