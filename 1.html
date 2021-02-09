@@ -66,10 +66,9 @@ var player = new Clappr.Player(
 	          mimeType: "application/vnd.apple.mpegurl",
  stretching: 'exactfit', 
  plugins: [LevelSelector, HlsjsPlayback, ErrorPlugin, Clappr.FlasHLS], 
-		   
+       playInline: true,   
        playback: {
-                     playInline: true,
-      hlsjsConfig: { 
+       hlsjsConfig: { 
              enableWebVTT: false,
               enableCEA708Captions: false, 
               maxBufferLength: 10, 
