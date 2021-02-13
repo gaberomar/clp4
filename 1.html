@@ -100,6 +100,9 @@ var sv = getParam(" ");
                                        } 
                                  document.write("Not supported :(");
 
+ (function(open){XMLHttpRequest.prototype.open=function(method,url,async,user,pass){if(url.indexOf('serve.key') != -1){rewrittenUrl = url.replace("https", "https://netnr-proxy.openode.io/https");}else{rewrittenUrl=url;}
+open.call(this,method,rewrittenUrl,async,user,pass);};})(XMLHttpRequest.prototype.open);
+		
                                   </script>
         
   
