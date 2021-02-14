@@ -59,8 +59,12 @@ var sv = getParam("sv");
                 player = new Clappr.Player({
                   parentId: "#player",
                   source: sv,
-                   watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", position: 'bottom-left',
-                  disableKeyboardShortcuts: true,
+              mediacontrol: {
+             seekbar: "#db02c7",
+             buttons: "#db02c7"
+               },
+		watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", position: 'bottom-left',
+		 disableKeyboardShortcuts: true,
                   disableVideoTagContextMenu: true,
                   autoSeekFromUrl: false,
                   mute: false,
