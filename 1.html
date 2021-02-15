@@ -48,15 +48,18 @@ var sv = getParam(" ");
 .level_selector[data-level-selector]{position:absolute!important;top:5px!important;right:140px!important}
 .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-hd-indicator] svg{opacity:0}
 .clappr-watermark[data-watermark] {
-    min-width: 150px!important;
-    max-width: 300px!important;}
-    
+  
+	.clappr-watermark[data-watermark] {
+[data-watermark] img { max-width: 170%!important; }
+ 
 [data-watermark-bottom-left] {
     bottom: -7px!important;
-    left: 0px!important;} 
+    left: 10px!important;} 
 
 [data-watermark] img { max-width: 100%!important; }
 [data-watermark] {width: 24%!important;}
+	
+	
 --></style>
 
 <div id="player"></div>
