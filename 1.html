@@ -67,17 +67,17 @@ var sv = getParam(" ");
     source: sv,
     parentId: "#player",
     width:"100%",height:"100%",
-    plugins: {core: [LevelSelector], playback:[DashShakaPlayback], },
-     mute: false,
-     autoPlay: true,
-     hideVolumeBar: true,
+    plugins: [LevelSelector, ErrorPlugin, DashShakaPlayback, Clappr.FlasHLS],    
+    mute: false,
+    autoPlay: true,
+    hideVolumeBar: true,
     position: "bottom-left",
     watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png",
     shakaConfiguration: {},
- errorPlugin: {
-     timeToExpires: 2,
+    errorPlugin: {
+    timeToExpires: 2,
     onRetry: function(e) {
-      player.configure({
+     player.configure({
         source: sv,
         autoPlay: true,
       });
