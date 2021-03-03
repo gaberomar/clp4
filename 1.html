@@ -1,9 +1,6 @@
-<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-<head>
-<meta content='width=device-width, initial-scale=1' name='viewport'/>
-<title>Clappr</title>
-<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
 
+
+<html><head>
  <style>
       /* This CSS is required to avoid layout issues */
       html,
@@ -15,16 +12,18 @@
         margin: 0;
         padding: 0;
       }
-    </style>
-	<style>/*<![CDATA[*/
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
-  body *{font-family: 'Tajawal', sans-serif!important}
-/*]]>*/</style> 
-</head>
-<body style="margin:0;background:#000;">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+    </style></head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clappr play</title>
+	
+<meta name="referrer" content="no-referrer">
+ <script src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+ <script> var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoBAMAAAA1HFdiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEX5+fn//wAA//8A/wD/AP//AAAAAP8XFxf///8H5gWfAAAAAWJLR0QIht6VegAAAAd0SU1FB98IBRIsAXmGk48AAAI5SURBVHja7dJBDYBADADBs4AFLGABC1iohbOPhv1BMvu+NLlp10odqTN1pe7Uk5pQ8wMIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECDA/wKWxzM71T7ZZrfltNnppgACBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAL8B+ALjSfYzPnmdzgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0wOC0wNVQxODo0NDowMSswMTowMCL95a4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMDgtMDVUMTg6NDQ6MDErMDE6MDBToF0SAAAAAElFTkSuQmCC",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:" موقع : كوره جي لايف";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html(' <span class="retry-counter">'+g+"</span>  بث مباشر لجميع المبارايات ").css({"font-size":"90%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}}); </script>
 <script type="text/javascript">
 function getParam ( sname )
 {
@@ -35,67 +34,128 @@ function getParam ( sname )
 var sv = getParam("sv");
 </script>
 
-<style id='page-skin-1' type='text/css'><!--
-*body{width: 100%;height: 80%;overflow: hidden;background: #333} 
-#player{width: 100%;height: 100%;position: absolute;z-index: 2; top:0; right:0; left:0; bottom:0;}  
-.media-control.live[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar] .bar-fill-2[data-seekbar]{background-color:#ff0101!important}
-.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar]{height:3px!important}
-.level_selector[data-level-selector] button{font-size:0!important;background:url(https://3.bp.blogspot.com/-zetFuQ36xLo/W_brDTdM6yI/AAAAAAAALrE/ETrOqtTKj3ozXXIBbj_zwaiTNzpd1hn0ACLcBGAs/s1600/settings.png) center center/100% no-repeat;display:block!important;opacity:inherit;width:21px;height:21px;cursor:pointer}
-.level_selector[data-level-selector]{position:absolute!important;top:5px!important;right:140px!important}
-.media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-hd-indicator] svg{opacity:0}
-.clappr-watermark[data-watermark] {
-  
-[data-watermark] img { max-width: 170%!important; }
- 
-[data-watermark-bottom-left] {
-    bottom: -7px!important;
-    left: 25px!important;} 
+<div style="width: 100%;">
+<body style="margin:0px;padding:0px;overflow:hidden">
 
-[data-watermark] img { max-width: 100%!important; }
-[data-watermark] {width: 24%!important;}
-	
-	
---></style>
 
 <div id="player"></div>
-<script> 
-		
-   var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoBAMAAAA1HFdiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEX5+fn//wAA//8A/wD/AP//AAAAAP8XFxf///8H5gWfAAAAAWJLR0QIht6VegAAAAd0SU1FB98IBRIsAXmGk48AAAI5SURBVHja7dJBDYBADADBs4AFLGABC1iohbOPhv1BMvu+NLlp10odqTN1pe7Uk5pQ8wMIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECDA/wKWxzM71T7ZZrfltNnppgACBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAL8B+ALjSfYzPnmdzgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0wOC0wNVQxODo0NDowMSswMTowMCL95a4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMDgtMDVUMTg6NDQ6MDErMDE6MDBToF0SAAAAAElFTkSuQmCC",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:" موقع : كوره جي لايف";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html(' <span class="retry-counter">'+g+"</span>  بث مباشر لجميع المبارايات ").css({"font-size":"90%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}}); 
-   var player = new Clappr.Player({
-    source: sv,
-    parentId: "#player", 
-    plugins: [LevelSelector, ErrorPlugin, DashShakaPlayback, Clappr.FlasHLS],   
-    width:"100%",height:"100%",   
-    mute: false,
-    autoPlay: true,
-    hideVolumeBar: true,
-    position: "bottom-left",   
-    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
-    shakaConfiguration: {},   
-    errorPlugin: {
-    timeToExpires: 2,
-    onRetry: function(e) {
-     player.configure({
-        source: sv,
-        autoPlay: true,
-	     
-      });
+ 
+<script type="text/javascript">
+ 
+	var player='';
+
+function gUlrmRettp() {
+        return([""].join("") + ailarbrSansrUtAereugy.join("") + document.getElementById("ShikacrtaBetugfnsi").innerHTML);
     }
-  }, 
+    function rgpmtatmeRtSe() {
+        return([""].join(""));
+    }
+    function tretplHgUt() {
+        return(["\/","\/","n","l","1",".","s","t","r","e","a","m","l","i","v","e",".","t","o","\/","f","r","e","e","a","b","r","\/","z","f","5","w","0","3","b","q","4","0","g","d","k","y","1","\/","p","l","a","y","l","i","s","t",".","m","3","u","8","?","w","m","s","A","u","t","h","S","i","g","n","="].join("") + ailarbrSansrUtAereugy.join("") + document.getElementById("ShikacrtaBetugfnsi").innerHTML);
+    }
+var nebaaiteAregSrulrsyrU = ["XNo","oUz","XRy","lBQ","3Rp","zIw","VyX","ZoY","Z2Y","GVm","X3Z","BTS","V1d","9My","ZFU","gOD","VlP","Dox","Y0E","8zL","9PS","o1O","mVW","ZXF","Wxp","c2V","ydm","gya","MjE","MSB","hbH","bWU"];
+var srruAgeSrtaayelirbUen = ["VyX","oUz","ZFU","ydm","hbH","mVW","MSB","Wxp","3Rp","XNo","Dox","ZXF","XRy","X3Z","Y0E","zIw","VlP","o1O","GVm","lBQ","8zL","Z2Y","gOD","9PS","MjE","V1d","9My","ZoY","gya","bWU","c2V","BTS"];
+var SrnsutirelAerayabregU = ["ZFU","hbH","MjE","ydm","lBQ","bWU","ZoY","VyX","zIw","3Rp","9PS","ZXF","gOD","MSB","mVW","V1d","VlP","Dox","Z2Y","XRy","o1O","9My","GVm","Y0E","Wxp","8zL","XNo","c2V","gya","X3Z","BTS","oUz"];
+var eSerbUratlyarinsAreug = ["hbH","gya","Y0E","bWU","MSB","mVW","zIw","ZXF","o1O","MjE","9PS","XNo","Dox","VlP","V1d","XRy","9My","X3Z","c2V","BTS","3Rp","GVm","ZoY","oUz","8zL","ZFU","gOD","lBQ","Wxp","Z2Y","ydm","VyX"];
+var aebrSAnltyaeesgriUurr = ["Y0E","mVW","9My","9PS","BTS","hbH","VyX","X3Z","bWU","ZoY","Z2Y","3Rp","8zL","gya","XRy","zIw","oUz","VlP","MSB","ZXF","GVm","MjE","c2V","XNo","ZFU","Dox","o1O","ydm","gOD","lBQ","V1d","Wxp"];
+var esleaSraAUgirrnytbreu = ["gOD","ZoY","ydm","VyX","XRy","c2V","hbH","oUz","9My","8zL","gya","ZXF","mVW","ZFU","Wxp","V1d","XNo","MjE","Dox","lBQ","zIw","VlP","MSB","BTS","GVm","9PS","Z2Y","o1O","3Rp","Y0E","bWU","X3Z"];
+var aeyegUntesrlrAairSubr = ["BTS","VlP","Z2Y","VyX","bWU","Dox","lBQ","X3Z","ZoY","MjE","XRy","hbH","c2V","ZFU","mVW","9PS","o1O","Y0E","MSB","ZXF","GVm","V1d","XNo","Wxp","ydm","zIw","oUz","8zL","3Rp","gya","gOD","9My"];
+var snurityaUelberareSAgr = ["8zL","o1O","BTS","ZFU","Wxp","Y0E","gya","Dox","9My","MSB","bWU","X3Z","VlP","XRy","gOD","mVW","c2V","MjE","VyX","XNo","9PS","ZoY","V1d","GVm","hbH","lBQ","ZXF","Z2Y","zIw","oUz","3Rp","ydm"];
+var ailarbrSansrUtAereugy = ["c2V","ydm","VyX","3Rp","bWU","9My","8zL","zIw","MjE","gOD","o1O","Dox","MSB","BTS","ZoY","XNo","X3Z","hbH","VlP","XRy","ZXF","mVW","ZFU","lBQ","V1d","oUz","gya","GVm","Y0E","9PS","Z2Y","Wxp"];
+var arsbinAlUareytgrereuS = ["o1O","ZXF","BTS","3Rp","Y0E","oUz","MjE","bWU","ZoY","GVm","9My","MSB","zIw","Wxp","9PS","XNo","ydm","gOD","XRy","8zL","Z2Y","Dox","X3Z","mVW","ZFU","lBQ","VlP","V1d","c2V","gya","hbH","VyX"];
+var irrlAeterUynubsgrSeaa = ["9My","MSB","Dox","ZFU","lBQ","BTS","MjE","bWU","mVW","X3Z","Z2Y","XNo","c2V","VyX","GVm","hbH","V1d","VlP","oUz","XRy","ZoY","ydm","gya","8zL","ZXF","9PS","zIw","Wxp","gOD","o1O","Y0E","3Rp"];
+var rlerrSigAarnueaUbytse = ["Dox","ydm","gOD","9PS","XRy","Wxp","Y0E","V1d","MSB","XNo","o1O","lBQ","X3Z","8zL","BTS","bWU","GVm","ZoY","9My","mVW","c2V","Z2Y","MjE","VyX","VlP","zIw","ZXF","3Rp","oUz","hbH","gya","ZFU"];
+var ygeslaSrnreeraAiUtbru = ["Y0E","zIw","BTS","o1O","gOD","hbH","mVW","ydm","GVm","X3Z","ZFU","ZoY","ZXF","VlP","9PS","XRy","9My","Z2Y","VyX","MSB","Wxp","8zL","gya","Dox","c2V","3Rp","MjE","bWU","V1d","XNo","lBQ","oUz"];
+var benUyieurlSrsaAterrag = ["hbH","Y0E","MSB","ZoY","zIw","VlP","BTS","mVW","gya","VyX","c2V","Dox","oUz","lBQ","o1O","gOD","ydm","XRy","3Rp","9My","9PS","bWU","MjE","Wxp","X3Z","Z2Y","ZXF","GVm","8zL","ZFU","V1d","XNo"];
+var AeserrlrruabgyetniaUS = ["oUz","Wxp","Z2Y","MSB","mVW","GVm","bWU","3Rp","9My","ZoY","Y0E","X3Z","lBQ","ydm","o1O","XNo","9PS","XRy","gya","zIw","hbH","VyX","ZFU","VlP","BTS","MjE","V1d","gOD","Dox","c2V","ZXF","8zL"];
+var sieUearlgbunrSeyarrAt = ["VyX","o1O","zIw","9My","ZoY","XRy","ydm","mVW","8zL","3Rp","Z2Y","bWU","ZFU","9PS","gOD","hbH","oUz","BTS","Dox","gya","MSB","c2V","ZXF","V1d","lBQ","GVm","X3Z","Y0E","Wxp","VlP","MjE","XNo"];
+var ierrtgenraUAreSyulbas = ["ydm","gya","BTS","lBQ","3Rp","Wxp","mVW","MSB","VyX","oUz","V1d","9PS","XNo","ZoY","hbH","Z2Y","ZFU","ZXF","Y0E","bWU","Dox","MjE","zIw","VlP","XRy","gOD","8zL","9My","GVm","c2V","X3Z","o1O"];
+        if (p2pml.hlsjs.Engine.isSupported()) {
+            var engine = new p2pml.hlsjs.Engine();
+            var player = new Clappr.Player({
+                parentId: "#player",
+                source: "https://tpgt36c4pw5cu56z.ezcdn483.net:8443/hls/t69y1s69ffvz.m3u8?s=_fme6zgBQWkSH7HA5PQMYQ&e=1614782999",
+                width: "100%",
+                height: "100%",
+                autoPlay: true, 
+                mute: false, 
+                hideVolumeBar: true, 
+ position: "bottom-left",   
+    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
+            mediacontrol: {seekbar: "rgba(232, 98, 86, 0.8)", buttons: "rgba(232, 98, 86, 0.8)"},    
+  plugins: [LevelSelector,ErrorPlugin, Clappr.FlasHLS  ],  
+         playback: {
+                playInline: true,
+                    hlsjsConfig: {
+                        liveSyncDurationCount: 7,
+                        loader: engine.createLoaderClass()
+                    }
+                },
 
-  });  
+         events: {
+              //onError: function(e) { errorPlaying() }
+            },
+            });
 
- player.on(Clappr.Events.PLAYER_STOP, playerStop);
+ function resizePlayer(){
+    var aspectRatio = 9/16,
+    newWidth = document.getElementById('container').parentElement.offsetWidth,
+    newHeight = 2 * Math.round(newWidth * aspectRatio/2);
+    player.resize({width: newWidth, height: newHeight});
+  }
+
+  resizePlayer();
+  window.onresize = resizePlayer; 
+
+
+ p2pml.hlsjs.initClapprPlayer(player);
+
+
+player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
                } 
 
   player.setVolume(100); // 1%
                player.play();
-  	
-           </script>
-	
+            
+        } else {
+            document.write("Not supported :(");
+        }
+
+
+   $(function() {
+   	$('#ad_overlay_close').click(function(event) {
+   		player.unmute();
+   		console.log('unmute');
+   		return false;
+   	});
+   });
+       
+    </script>
+
+<script>
+  function errorPlaying(){
+    url = "";
+    var a = document.createElement("a");
+    if (a.click) {
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_self");
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+    } else {
+        location.href = url;
+    }
+
+  }
+
+</script>
+
+
 <div style='clear: both;'></div>
+<div class='no-items section' id='Clappr play'></div> 
+
 <style>
 /* <![CDATA[ */
 
@@ -112,11 +172,14 @@ jw-controls.jw-reseth:before{content:'';z-index:9;position:absolute;right:0;left
    .
 
 /*]]>*/</style>
-	 
+	<style>/*<![CDATA[*/
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
+  body *{font-family: 'Tajawal', sans-serif!important}
+/*]]>*/</style> 
 <style>
 /* <![CDATA[ */
 
-	body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; }
+    body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; }
 	#showshare1 {
     position: fixed;
     right: 0;
@@ -198,3 +261,5 @@ textarea {
 
 </body>
 </html>
+
+
