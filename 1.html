@@ -94,14 +94,7 @@ function gUlrmRettp() {
             },
             });
 
- function resizePlayer(){
-    var aspectRatio = 9/16,
-    newWidth = document.getElementById('container').parentElement.offsetWidth,
-    newHeight = 2 * Math.round(newWidth * aspectRatio/2);
-    player.resize({width: newWidth, height: newHeight});
-  }
-  resizePlayer();
-  window.onresize = resizePlayer; 
+
  p2pml.hlsjs.initClapprPlayer(player);
 player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
