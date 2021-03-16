@@ -177,8 +177,12 @@ player.core.mediaControl.toggleFullscreen();
 }
 setTimeout(plstst, 39000);
 
-
+player.on(Clappr.Events.PLAYER_STOP, playerStop);
+                 function playerStop(){
+                  location.reload();
+  }
   
+	  
   </script>
 	
 <div style='clear: both;'></div>
