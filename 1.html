@@ -40,7 +40,7 @@ var sv = getParam("sv");
    <script data-n-head="ssr" src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script> 
    <script data-n-head="ssr" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script> 
    <script data-n-head="ssr" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script> 
-       
+   <script> var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoBAMAAAA1HFdiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEX5+fn//wAA//8A/wD/AP//AAAAAP8XFxf///8H5gWfAAAAAWJLR0QIht6VegAAAAd0SU1FB98IBRIsAXmGk48AAAI5SURBVHja7dJBDYBADADBs4AFLGABC1iohbOPhv1BMvu+NLlp10odqTN1pe7Uk5pQ8wMIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECDA/wKWxzM71T7ZZrfltNnppgACBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAL8B+ALjSfYzPnmdzgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0wOC0wNVQxODo0NDowMSswMTowMCL95a4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMDgtMDVUMTg6NDQ6MDErMDE6MDBToF0SAAAAAElFTkSuQmCC",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:" موقع : كوره جي لايف";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html(' <span class="retry-counter">'+g+"</span>  بث مباشر لجميع المبارايات ").css({"font-size":"90%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}}); </script>
 <style>
 	#vid{
     z-index: 10;
@@ -76,10 +76,11 @@ var sv = getParam("sv");
 <div class='player-container' id='vid'></div>
 	
   <script>
-
-var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoBAMAAAA1HFdiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEX5+fn//wAA//8A/wD/AP//AAAAAP8XFxf///8H5gWfAAAAAWJLR0QIht6VegAAAAd0SU1FB98IBRIsAXmGk48AAAI5SURBVHja7dJBDYBADADBs4AFLGABC1iohbOPhv1BMvu+NLlp10odqTN1pe7Uk5pQ8wMIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECDA/wKWxzM71T7ZZrfltNnppgACBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAL8B+ALjSfYzPnmdzgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0wOC0wNVQxODo0NDowMSswMTowMCL95a4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMDgtMDVUMTg6NDQ6MDErMDE6MDBToF0SAAAAAElFTkSuQmCC",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:" موقع : كوره جي لايف";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html(' <span class="retry-counter">'+g+"</span>  بث مباشر لجميع المبارايات ").css({"font-size":"90%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}}); 
+if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Mobile Safari/i) || navigator.userAgent.match(/Blackberry/i)){
+    document.write("\<video style=\"z-index:2;width:100%;height:100%;background-color:#000;-o-object-fit:fill;object-fit:fill\" controls=\"controls\" autoplay=\"true\" preload=\"auto\" height=\"auto\" src=\""+sv+"\"\>\<\/video\>");
+} else {
  if (p2pml.hlsjs.Engine.isSupported()) { 
-                var engine = new p2pml.hlsjs.Engine(); 
+ var engine = new p2pml.hlsjs.Engine(); 
 
 player = new Clappr.Player({
        source: sv,
@@ -132,6 +133,7 @@ player.core.mediaControl.toggleFullscreen();
 }
 }
 setTimeout(plstst, 39000);
+	 }  
   p2pml.hlsjs.initClapprPlayer(player); 
   player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
@@ -148,6 +150,7 @@ zdec = "ZHJhd0lGUjIoYXRvYignTDNOMGNtVmhiUzgvWlQwME1EUT0nKSk7";eval(atob(zdec));}
             
                player.setVolume(100); // 1%
                player.play();
+	
   </script>
 
 <script>
