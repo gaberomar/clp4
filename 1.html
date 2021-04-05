@@ -75,9 +75,7 @@ var sv = getParam("sv");
 <div class='player-container' id='vid'></div>
 	
   <script>
-if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Mobile Safari/i) || navigator.userAgent.match(/Blackberry/i)){
-    document.write("\<video style=\"z-index:2;width:100%;height:100%;background-color:#000;-o-object-fit:fill;object-fit:fill\" controls=\"controls\" autoplay=\"true\" preload=\"auto\" height=\"auto\" src=\""+sv+"\"\>\<\/video\>");
-} else {
+
  if (p2pml.hlsjs.Engine.isSupported()) { 
  var engine = new p2pml.hlsjs.Engine(); 
 
@@ -132,7 +130,7 @@ player.core.mediaControl.toggleFullscreen();
 }
 }
 setTimeout(plstst, 39000);
-	 }  
+	
   p2pml.hlsjs.initClapprPlayer(player); 
   player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
