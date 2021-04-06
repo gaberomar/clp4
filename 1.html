@@ -99,10 +99,8 @@ mediacontrol: {seekbar: "#ff0000", buttons: "#ff0000"},
                         events: {
                         onError: function(e) {
                         setTimeout(function() { player.configure(player.options); }, 10000);}},
-
-    plugins: {'core': [LevelSelector]},  
     plugins: [
-      LevelSelector,  ErrorPlugin, Clappr.FlasHLS
+        LevelSelector,  ErrorPlugin
             ],
     playback: {
         hlsjsConfig: {
