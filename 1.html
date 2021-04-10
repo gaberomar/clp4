@@ -100,9 +100,7 @@ mediacontrol: {seekbar: "#ff0000", buttons: "#ff0000"},
                         events: {
                         onError: function(e) {
                         setTimeout(function() { player.configure(player.options); }, 10000);}},
-    plugins: [
-        LevelSelector,  ErrorPlugin
-            ],
+    plugins: {'core': [LevelSelector]},
    playback: {
  playInline: true 
 }, 
@@ -113,6 +111,9 @@ maxBufferLength: 60,
 liveSyncDurationCount: 9, 
 initialLiveManifestSize: 3 
 } , 
+	 plugins: [
+      ErrorPlugin
+            ],
 events: {	
 onError: function (e) 
 { 
