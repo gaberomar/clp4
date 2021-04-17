@@ -76,15 +76,22 @@ var sv = getParam("sv");
 	}
 
 	$( document ).ready( function(){
-		player = new Clappr.Player({
-			source     : sv,
-			parentId     : "#player",
-			width      : "100%",
-			height     : "100%",
-			autoPlay   : false,
-			mute: true,
-			stretching : "bestfit",
-			 hideVolumeBar: true,
+	   player = new Clappr.Player({
+	    source     : sv,
+	    mimeType: 'application/x-mpegURL',
+	    parentId     : "#player",  
+	    fullscreen: false,
+            autoPlay: true, 
+            mute: true, 
+	    stretching : "bestfit",	
+            hideVolumeBar: true,
+			loop: true, 
+            height: '100%',
+            width: '100%',
+			playback: {
+              playInline: 'playsinline'
+            },
+				
 		    watermark  : "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png",
 		    position  : "bottom-left",
 		  	watermarkLink : "",
