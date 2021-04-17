@@ -45,7 +45,7 @@ var sv = getParam("sv");
    <script data-n-head="ssr" src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script> 
    <script data-n-head="ssr" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script> 
    <script data-n-head="ssr" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script> 
- 	
+
 <style>.dvr-controls[data-dvr-controls] .live-info::before, .bar-fill-2{ background-color:#000000 !important; }</style>
 <script type="text/javascript">
 function getParam ( sname )
@@ -57,6 +57,8 @@ function getParam ( sname )
 var sv = getParam("sv");
 </script>
 
+<div class="container">
+<div id="player"></div>
 <script>
 	var player;
 	var hlsjsConfig =  {
