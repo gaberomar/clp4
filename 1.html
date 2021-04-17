@@ -80,26 +80,27 @@ var sv = getParam("sv");
 
 	$( document ).ready( function(){
 	   player = new Clappr.Player({
-	    source     : sv,
-	    mimeType: 'application/x-mpegURL',
-	    parentId     : "#vid",  
-	    fullscreen: true,
+	     source: sv,
+		   fullscreen: false,
+            mimeType: 'application/x-mpegURL',
             autoPlay: true, 
-             mute: false,
-	    stretching : "bestfit",	
+            mute: true, 
             hideVolumeBar: true,
 			loop: true, 
             height: '100%',
             width: '100%',
 			playback: {
-              playInline: 'playsinline'
-            },
-				
+      playInline: 'playsinline'
+        },
+			plugins: {'core': [LevelSelector]},  
+            parentId: '#vid',	
 		    watermark  : "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png",
 		    position  : "bottom-left",
-		  	watermarkLink : "",
+		  	watermarkLink: 'http://www.koraglive.cf/',
+			allowUserInteraction: false,
+			persistConfig: false,
   mediacontrol: {seekbar: "#ff0000", buttons: "#ff0000"},
-plugins: {'core': [LevelSelector]}, 
+
 			events     :
 			{
     			onError: function(e) {
