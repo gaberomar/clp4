@@ -71,12 +71,13 @@ var sv = getParam("sv");
 		fragLoadingTimeOut: 1000,
 		startFragPrefetch: true,
 	};
-        if (p2pml.hlsjs.Engine.isSupported()) {
-         var engine = new p2pml.hlsjs.Engine();
-	hlsjsConfig["loader"] = engine.createLoaderClass();
+        if (typeof engine!="undefined" && typeof p2pml!="undefined" ) {
+		hlsjsConfig["loader"] = engine.createLoaderClass();
 	}
 
 	$( document ).ready( function(){
+            if (p2pml.hlsjs.Engine.isSupported()) {
+            var engine = new p2pml.hlsjs.Engine();}
 	   player = new Clappr.Player({
 	    source: sv, 
 	    fullscreen: false,
