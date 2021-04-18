@@ -71,10 +71,9 @@ var sv = getParam("sv");
 		fragLoadingTimeOut: 1000,
 		startFragPrefetch: true,
 	};
-
-	if (typeof engine!="undefined" && typeof p2pml!="undefined" ) {
-
-		hlsjsConfig["loader"] = engine.createLoaderClass();
+        if (p2pml.hlsjs.Engine.isSupported()) {
+         var engine = new p2pml.hlsjs.Engine();
+	hlsjsConfig["loader"] = engine.createLoaderClass();
 	}
 
 	$( document ).ready( function(){
