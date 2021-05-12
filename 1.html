@@ -1,5 +1,6 @@
 
 
+
  <html><head>
 <style> video {object-fit:fill}</style><style>html,body{margin:0;}</style>
 <style> .video-js {width: 100%; height: 100%;} #videojs {width: 100%; height: 100%;}</style>
@@ -35,18 +36,25 @@ var sv = getParam("sv");
                 mute: true,
                 autoPlay: true,
                 hideVolumeBar: true,
-             height: '100%',
-            width: '100%',
+                height: '100%',
+                width: '100%',
+   disableVideoTagContextMenu: true,
+                        disableErrorScreen: true,
+   events: {
+                        onError: function(e) {
+                        setTimeout(function() { player.configure(player.options); }, 10000);}},
            plugins: {'core': [LevelSelector]},  
-  mediacontrol: {seekbar: "#ff0000", buttons: "#ff0000"}, 
-   watermark  : "http://2.bp.blogspot.com/-OCYZC7_td70/YJbxdPLFWVI/AAAAAAAAM9E/2_ir6ToDvZk8PQQCScScUf1Ic5QVeQT7ACK4BGAYYCw/s1600/lg2.png",
-		    position  : "bottom-left",
-            playback: {
+    playback: {
                     hlsjsConfig: {
                         liveSyncDurationCount: 7,
                         loader: engine.createLoaderClass()
                     }
-                }
+                },
+        
+mediacontrol: {seekbar: "#ff0000", buttons: "#ff0000"}, 
+   watermark  : "http://2.bp.blogspot.com/-OCYZC7_td70/YJbxdPLFWVI/AAAAAAAAM9E/2_ir6ToDvZk8PQQCScScUf1Ic5QVeQT7ACK4BGAYYCw/s1600/lg2.png",
+		    position  : "bottom-left",
+           
             });
 
             p2pml.hlsjs.initClapprPlayer(player);
@@ -113,74 +121,7 @@ button.media-control-button.media-control-icon.stopped svg{height:16px!important
 .level_selector[data-level-selector] li:nth-child(1) a:before{content:'Auto';font-size:13px}
 .spinner-three-bounce[data-spinner]>div{display:none!important}
 </style>
-<script type="284f1f4c205e0a4bf799891f-text/javascript">
-bool = false;
-var openedwin = false;
-var volumeSet = false;
-var loop = 0;
-    
-function getToVideo(e){
-    if(!openedwin){
-        window.open(popurl, '_blank');
-        openedwin = true;
-        popurltmp = popurl;
-        popurl = popurl2;
-        popurl2 = popurltmp;
-        $("#overlay").hide();
-        loop++;
-        if(loop == 1){
-            var timer=setTimeout(function(){
-                refreshdl();
-            },1000);
-        } else {
-          if(loop < 5){
-              var timer=setTimeout(function(){
-                  refreshdl();
-              },15000);
-          }
-        }
-        e.preventDefault();
-    }
-}
 
-$(document).on('touchend click', "#overlay", function(e) {
-    getToVideo(e);
-    if(!volumeSet && typeof player !== 'undefined'){
-      if(typeof player.version === 'undefined'){ //clappr
-        player.configure({hideMediaControl: "true"});
-      } else {
-        player.unmute();
-      }
-      player.setVolume(parseInt(pvolume));
-      volumeSet = true;
-      e.stopImmediatePropagation();
-    }
-});
-$(document).ready(function() {
-    if($.ads == undefined){
-      popurl = "";
-      //$("#site-contenedor .raulito").prop("src", "");
-    };
-    if(!isiOS && !isEdge){
-        $("body").append('<object data="data:application/pdf;base64,aG1t" width="1px" height="1px" style="position:absolute;top:-500px;left:-500px;visibility:hidden;" onerror="unsandbox();$(this).remove()"></object>');
-    }
-    if (!isInArray(hostname, whitelist)) {
-      vwu();
-      setInterval("vwu()", 300000);
-    }
-});
-
-function refreshdl(){
-    if(openedwin){
-        openedwin = false;
-        $("#overlay").show();
-    }
-}
-var timer=setTimeout(function(){
-    $('.close').fadeIn(300);
-},4000);
-  
-</script>
 <style>
 /* <![CDATA[ */
 
@@ -197,7 +138,88 @@ jw-controls.jw-reseth:before{content:'';z-index:9;position:absolute;right:0;left
    .
 
 /*]]>*/</style>
-	
+<style>
+/* <![CDATA[ */
+
+    body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; }
+	#showshare1 {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index:9999;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    color: #eee;
+}
+
+#showshare10 {
+    position: absolute;
+    top: 50%;
+    margin-top: -90px;
+    right: 0;
+    left: 0;
+}
+.ytp-share-panel-title {
+    font-size: 105%;
+    font-family:"Segoe UI", tahoma;
+    color: #eee;
+    direction: rtl;
+    line-height: 1.3;
+}
+
+.ytp-share-panel-service-button {
+    padding: 3px;
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+}
+.ytp-share-panel-service-buttons {
+    margin-top: 20px;
+    height: 44px;
+}
+
+textarea {
+    display: block;
+    position: relative;
+    border: 1px solid #f1f1f1;
+    margin: 5px auto;
+    border-radius: 5px;
+    width: 90%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    text-align: left;
+    max-width: 400px;
+    overflow-y: hidden;
+}
+.custom-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 5px;
+    background: #dc4537;
+    font-size: 14px;
+    outline: 0 none;
+    color: #fff;
+    border:0;
+    font-family:"Segoe UI", tahoma;
+}
+.custom-btn:hover {
+    background: #b13a26;
+}
+.spinner-three-bounce[data-spinner] {
+    background: url(http://1.bp.blogspot.com/-llKolZ83Iac/X7_E0rwFfsI/AAAAAAAAJwo/YZuZsJcfJXUJh_9suBrqD3M3YA_gBWutgCK4BGAYYCw/s1600/loader1.gif) no-repeat center center;
+    height: 80px!important;
+    width: 100%!important;
+    top: 45%!important;
+}
+
+.spinner-three-bounce[data-spinner]>div {
+    width: 0!important;
+}
+/* ]]> */
+</style>	
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="284f1f4c205e0a4bf799891f-|49" defer=""></script></body>
 </body>
 </html>
