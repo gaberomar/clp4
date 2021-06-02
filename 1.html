@@ -52,9 +52,7 @@ var sv = getParam("sv");
                 hideVolumeBar: true,
                 height: '100%',
                 width: '100%',
-   disableVideoTagContextMenu: true,
-                        disableErrorScreen: true,
-   events: {
+                  events: {
                         onError: function(e) {
                         setTimeout(function() { player.configure(player.options); }, 10000);}},
            plugins: {'core': [LevelSelector]},  
