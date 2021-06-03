@@ -14,25 +14,14 @@ function getParam ( sname )
 var sv = getParam("sv");
 
 </script> 
-	 <meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <meta http-equiv="Expires" content="0" /> 
 <meta http-equiv="Pragma" content="no-cache" /> 
 <meta http-equiv="Cache-Control" content="no-cache"/>
- <meta name="referrer" content="no-referrer">
- <meta http-equiv="X-Frame-Options" content="deny">
-	 
-<style> .video-js {width: 100%; height: 100%;} #videojs {width: 100%; height: 100%;}</style>
 <style> video {object-fit:fill}</style><style>html,body{margin:0;}</style>
- 
-<div class="jwplayer jw-reset jw-skin-glow player live" id="player"></div>
-<video-js id="player2" class="vjs-big-play-centered vjs-default-skin player" style="display: none" controls></video-js>
-
-	 
+<style> .video-js {width: 100%; height: 100%;} #videojs {width: 100%; height: 100%;}</style>	 	 
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	 
-<script>var WSreloadCounter=false,WSnTries=0,videoStarted = false, startMuted = startMuted(),mPlayer = 1,manifestLoaded = false,WSref='akrx9ac0kmax4';function errorPlaying(){$(".stream-offline .counter").text(10);$(".stream-offline").css("display","table");if (!WSreloadCounter)WSreloadCounter=setInterval(function(){var a=$(".stream-offline .counter").text();if(a>1){a--;$(".stream-offline .counter").text(a)}else{ clearInterval(WSreloadCounter);WSreloadCounter=false;WSnTries++;if(WSnTries<10){WSreloadStream();}else{ window.location.reload() } }},1000)}function startMuted(){var b=/constructor/i.test(window.HTMLElement)||(function(c){return c.toString()==="[object SafariRemoteNotification]"})(!window.safari||(typeof safari!=="undefined"&&safari.pushNotification));if(b){return true}if(window.chrome&&getChromeVersion()>=66){return true}var ff = navigator.userAgent.match(/firefox\/([0-9]{2,})/i);if( ff && parseInt( ff[1] )>=66 ){return true}var a=(navigator.userAgent.match(/Opera|OPR\//)?true:false);if(a){return true}return false}function getChromeVersion(){var b=navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);return b?parseInt(b[2],10):false};function abd(){WSreloadStream=function(){return};if(player)player.stop();$("#player").remove();clearInterval(WSreloadCounter);$("body").html('<div class="tb stream-offline" style="display:table"><div class="tb-col"><a href="/" target="_blank"><img src="/imgs/icon.png" /></a><h2>SANDBOX IFRAME NOT ALLOWED</h2><div style="padding-top: 0.8em">WATCH ON THE FOLLOWING LINK:</div><input value="http://' + location.hostname + '/live/akrx9ac0kmax4" onclick="this.select()" type="text" style="width:280px;border:0;background:none;color:#12e5a8;margin-top:20px;font-size:15px;text-align:center;"/></div></div>') }</script>
-
 <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
 <script>if(typeof p2pml!="undefined") {var engine = new p2pml.hlsjs.Engine({segments: {swarmId: "iq4lacs2d581zcc"},loader: {httpUseRanges:false, WaitForTracker:true, WaitForTrackerCounter:4500, trackerAnnounce : ["wss://xz1.hlsdelivery142.net:8443/?ref=iq4lacs2d581zcc"]}}) }</script>
