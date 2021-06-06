@@ -75,13 +75,14 @@ var sv = getParam("sv");
         if (p2pml.hlsjs.Engine.isSupported()) {
             var engine = new p2pml.hlsjs.Engine();
             var player = new Clappr.Player({
-                parentId: "#player",
-                source: sv,
-                mute: true,
-                autoPlay: true,
-                hideVolumeBar: true,
-                height: '100%',
-                width: '100%',
+            parentId:"#Player",source: sv,
+            autoPlay: true,
+            mute:startMuted(),
+            width:"100%",
+            height:"100%", 
+            stretching:"uniform", 
+            mimeType:"application/x-mpegURL", 
+            hideVolumeBar: true, 
                   events: {
                         onError: function(e) {
                         setTimeout(function() { player.configure(player.options); }, 10000);}},
