@@ -1,7 +1,8 @@
 
 
 
-<head>
+
+
 
 <script type="text/javascript">
 function getParam ( sname )
@@ -15,135 +16,93 @@ var sv = getParam("sv");
 
 </script>
 
-<title>https://futboll.online - Live Streaming</title>
+<style> .video-js {width: 100%; height: 100%;} #videojs {width: 100%; height: 100%;}</style>								
+<style> video {object-fit:fill}</style><style>html,body{margin:0;}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Expires" content="0" /> 
+<meta http-equiv="Pragma" content="no-cache" /> 
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+     <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" ></script>
+  <![endif]-->
+	 <!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
 
-</head>
-<body>
-<div id="player" style="width:100%; height:100%"></div>
-    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
-<script>
+                             <div id="player" style="width:100%; height:100%"></div>
+ 
+                                      <meta name="referrer" content="none">
+                                         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
+                                          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
+                                          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
+                                          <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+                                        </head>
+                                         <body>
+                                          <script type="text/javascript">
+                                            var player='';
+                                              function eptgUlttrH() {
+                                              return(["\/","\/","n","l","1",".","s","t","r","e","a","m","l","i","v","e",".","t","o",":","4","5","6","\/","f","r","e","e","a","b","r","\/","s","w","p","u","k","h","y","a","v","6","r","6","y","l","5","\/","p","l","a","y","l","i","s","t",".","m","3","u","8","?","w","m","s","A","u","t","h","S","i","g","n","="].join("") + ltnUAbeSurrsariagaeyr.join("") + document.getElementById("cighasretSuBftnkia").innerHTML);
+                                            }
+                                       
+                                            if (p2pml.hlsjs.Engine.isSupported()) {
+                                              var engine = new p2pml.hlsjs.Engine();
 
- var siteUrl = 'https://futboll.online/';
- var stream_url = 'aHR0cHM6Ly9lZGdlMS54eXovbGl2ZS9zdHJlYW1pYzE0MTIxLm0zdTg/dG9rZW49';
+                                              player = new Clappr.Player({
+                                                parentId: "#player",
+                                                source: sv,
+                                                plugins: [LevelSelector],
+                                                playback: {
+                                                hlsjsConfig: {
+                                                liveSyncDurationCount: 7,
 
- window.onload = function () {
-  setPlayerSession();
-};
+                                                loader: engine.createLoaderClass()
+                                                }
+                                                },
+                                               height: '100%',
+		           width: '100%',
+                                                mute: false,
+                                                autoPlay: true,
+                                              mediacontrol: {seekbar: "#EE0048", buttons: "rgb(238,0,72)"}, 
+                                              watermark: "https://1.bp.blogspot.com/-RcWqkcNhNGE/YMP0d3OEG2I/AAAAAAAAM_s/8enH55tThiQ6Db9EbpyVmyxjaW4Z1BEuACLcBGAsYHQ/s300-rw-e90-w300/tv1.png", position : "bottom-left",  
 
-function setPlayerSession()
-{
-	$.ajax({
-		type: 'GET',
-		url: siteUrl+'preloader.php',
-		data: {  },
-		success: function (data) {
-			if(data == 'success'){
-			   setPlayerToken();
-			}
-		}
-	});
-}
+                                              });
 
-function setPlayerToken()
-{
-	$.ajax({
-		type: 'GET',
-		url: siteUrl+'hlsengine.php',
-		data: {  },
-		success: function (data) {
-			if(data == 'success'){
-				loadPlayer();
-			}
-		}
-	});
-}
+                                              function resizePlayer(){
+                                              var aspectRatio = 9/16,
+                                                newWidth = document.getElementById('container').parentElement.offsetWidth,
+                                                newHeight = 2 * Math.round(newWidth * aspectRatio/2);
+                                                player.resize({width: newWidth, height: newHeight});
+                                              }
 
-/**
-* encode into base64
-*/
-function base64_decode(e) {
-    var t = function(e) {
-        return decodeURIComponent(e.split("").map(function(e) {
-            return "%" + ("00" + e.charCodeAt(0).toString(16)).slice(-2)
-        }).join(""))
-    };
-    if ("undefined" == typeof window) return new Buffer(e, "base64").toString("utf-8");
-    if (void 0 !== window.atob) return t(window.atob(e));
-    var a, i, r, o, n, l, s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-        d = 0,
-        c = 0,
-        h = [];
-    if (!e) return e;
-    e += "";
-    do {
-        a = (l = s.indexOf(e.charAt(d++)) << 18 | s.indexOf(e.charAt(d++)) << 12 | (o = s.indexOf(e.charAt(d++))) << 6 | (n = s.indexOf(e.charAt(d++)))) >> 16 & 255, i = l >> 8 & 255, r = 255 & l, h[c++] = 64 === o ? String.fromCharCode(a) : 64 === n ? String.fromCharCode(a, i) : String.fromCharCode(a, i, r)
-    } while (d < e.length);
-    return t(h.join("").replace(/\0+$/, ""))
-}
+                                              resizePlayer();
+                                              window.onresize = resizePlayer; 
 
+                                              p2pml.hlsjs.initClapprPlayer(player);
+                                            } else {
+                                              document.write("Not supported :(");
+                                            }
 
-function loadPlayer()
-{
-
-let engine = new p2pml.hlsjs.Engine({segments: {swarmId: "streamic14121"},loader: {httpUseRanges:true, WaitForTracker: true, WaitForTrackerCounter:4500}});
-player = new Clappr.Player({
-	        parentId: "#player",
-		source: sv,
-		mediacontrol: {seekbar: "#808080", buttons: "#808080"},
-		autoPlay:false,
-		mimeType: "application/vnd.apple.mpegurl",
-		height: '100%',
-		width: '100%',
-		mute: true,
-		 watermark: "https://1.bp.blogspot.com/-RcWqkcNhNGE/YMP0d3OEG2I/AAAAAAAAM_s/8enH55tThiQ6Db9EbpyVmyxjaW4Z1BEuACLcBGAsYHQ/s300-rw-e90-w300/tv1.png", position : "bottom-left",
-		watermarkLink: "https://futboll.online/",
-		disableVideoTagContextMenu: true,
-		preload: "auto",
-                disableErrorScreen: true,
-                playback: {
-		  playInline: true,
-		  hlsjsConfig: {
-		    loader: engine.createLoaderClass(),
-			autoStartLoad: true,
-			manifestLoadingTimeOut: 60000,
-			manifestLoadingRetryDelay: 500,
-			levelLoadingTimeOut: 60000,
-			levelLoadingRetryDelay: 500,
-			fragLoadingTimeOut: 60000,
-			fragLoadingRetryDelay: 250,
-			startFragPrefetch: true,
-			liveSyncDuration: 60,
-			maxBufferLength: 60,
-			liveMaxLatencyDuration: Infinity,
-			preload: "auto"
-			 }
-		},
-            events: {
-                   onStop: () => { console.warn('onStop called'); setTimeout(() => player.play(), 5000); },
-                   onError: () => { console.warn('onStop called'); setTimeout(() => player.play(), 5000); },
-                   onEnded: () => { console.warn('onStop called'); setTimeout(() => player.play(), 5000); }
-
+                                            $(function() {
+                                              $('#ad_overlay_close').click(function(event) {
+                                              player.unmute();
+                                              return false;
+                                              });
+player.on(Clappr.Events.PLAYER_STOP, playerStop);
+               function playerStop(){
+               location.reload();
                 }
+    
+               player.setVolume(100); // 1%
+               player.play();
+                                            });
 
-
- });
-
-    //set p2p
-    if (p2pml.hlsjs.Engine.isSupported()) {
-           p2pml.hlsjs.initClapprPlayer(player);
-    }
-
-    setTimeout(function () {
-        player.play()
-      },
-      500)
-
-
-}
-
-</script>
+                                          </script>
 
 
 <style>
@@ -296,7 +255,7 @@ function play(link){if(link.indexOf('.html')!=-1){var xmlhttp=new XMLHttpRequest
  function reload(i){if(player.paused()&&player.error_!=null){if(i<link.length){play(link[i])}else{clearInterval(interval);document.write
 //]]>
 </script>
-	 <!-- Histats.com  START  (aync)-->
+	
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4556205,4,0,0,0,00010000']);
 _Hasync.push(['Histats.fasi', '1']);
@@ -307,7 +266,7 @@ hs.src = ('https://s10.histats.com/js15_as.js');
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
 })();</script>
 <noscript><a href="/" target="_blank"><img  src="https://sstatic1.histats.com/0.gif?4556205&101" alt="counter" border="0"></a></noscript>
-<!-- Histats.com  END  -->
-  
-  </body>
-</html>
+
+  	
+	
+	
